@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Main Menu Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Main Menu
+  m_TableCollectionNameGuidString: 743a2f10f0cd2e642b825b91db2c9742
+  m_Entries:
+  - m_Id: 33415122944
+    m_Key: txtGameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38167269376
+    m_Key: txtGraphic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40784515072
+    m_Key: txtAudio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44144152576
+    m_Key: btnSwitchLanguage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686778634240
+    m_Key: txtMode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 807037718528
+    m_Key: txtModeResolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 812033134592
+    m_Key: txtSFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1433595432960
+    m_Key: txtMusic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17575772835840
+    m_Key: btnPause
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7911779554124627992
+  references:
+    version: 2
+    RefIds:
+    - rid: 7911779554124627992
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1743159063102

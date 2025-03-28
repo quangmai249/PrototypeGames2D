@@ -9,6 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/HomeScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
-    path: Assets/Scenes/GameplayScene.unity
+    path: Assets/Scenes/GoldMinerScene.unity
     guid: 4f7752c9f934f8248a5fb228da6322bf
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/PlantsZombiesScene.unity
+    guid: 685697494822a6644a0930da0411cef1
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 8fd5ddc6276daab4593dc3208eab6bef, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 4547fba7ab184844f8da996ec0145ab7, type: 2}

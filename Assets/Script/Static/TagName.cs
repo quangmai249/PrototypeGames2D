@@ -12,5 +12,12 @@ public static class TagName
     public static string TAG_GAME_CONTROLLER = "GameController";
 
     //name of scenes
-    public static string NAME_SCENE_GAMEPLAY = "GameplayScene";
+    public static string NAME_SCENE_HOME = "HomeScene";
+
+    //name of mixer
+    public static string NAME_MIXER_MUSIC = "Music";
+    public static string NAME_MIXER_SFX = "SFX";
+
+    //name of data
+    public static string DATA_SETTING = "Setting";
 }
