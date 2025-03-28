@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Main Menu_vi-VN
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: vi-VN
+  m_SharedData: {fileID: 11400000, guid: 743a2f10f0cd2e642b825b91db2c9742, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 33415122944
+    m_Localized: "TR\xD2 CH\u01A0I"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38167269376
+    m_Localized: "\u0110\u1ED2 H\u1ECCA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40784515072
+    m_Localized: "\xC2M THANH"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44144152576
+    m_Localized: "THAY \u0110\u1ED4I NG\xD4N NG\u1EEE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 686778634240
+    m_Localized: "CH\u1EBE \u0110\u1ED8 C\u1EECA S\u1ED4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 807037718528
+    m_Localized: "\u0110\u1ED8 PH\xC2N GI\u1EA2I"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 812033134592
+    m_Localized: "HI\u1EC6U \u1EE8NG"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1433595432960
+    m_Localized: "\xC2M NH\u1EA0C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17575772835840
+    m_Localized: "T\u1EA0M D\u1EEANG"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
