@@ -63,29 +63,33 @@ public class PlayerGoldMiner : MonoBehaviour
             isDraw = false;
 
         if (!isDraw && isReach)
-        {
-            if (goItem != null)
-            {
-                hook.transform.Translate(goItem.GetComponent<ItemGoldMinerStats>().SpeedReach * new Vector3(0, 1, 0) * Time.deltaTime);
-
-                if (distance <= 0.5f)
-                {
-                    score += goItem.GetComponent<ItemGoldMinerStats>().Score;
-                    Destroy(goItem);
-                    txtScore.text = score.ToString();
-                    AudioManager.Instance.CoinSound();
-                }
-            }
-            else
-            {
-                hook.transform.Translate(speedIncrease * 2 * new Vector3(0, 1, 0) * Time.deltaTime);
-
-                if (distance <= 0.5f)
-                    isReach = false;
-            }
-        }
+            this.CheckReachItem();
 
         lineRenderer.SetPosition(1, hook.transform.position);
+    }
+
+    private void CheckReachItem()
+    {
+        if (goItem != null)
+        {
+            hook.transform.Translate(goItem.GetComponent<ItemGoldMinerStats>().SpeedReach * new Vector3(0, 1, 0) * Time.deltaTime);
+
+            if (distance <= 0.5f && goItem != null)
+            {
+                score += goItem.GetComponent<ItemGoldMinerStats>().Score;
+                Destroy(goItem);
+                txtScore.text = score.ToString();
+
+                AudioManager.Instance.CoinSound();
+            }
+        }
+        else
+        {
+            hook.transform.Translate(speedIncrease * 2 * new Vector3(0, 1, 0) * Time.deltaTime);
+
+            if (distance <= 0.5f)
+                isReach = false;
+        }
     }
 
     public bool IsReach
@@ -98,5 +102,10 @@ public class PlayerGoldMiner : MonoBehaviour
     {
         get => this.goItem;
         set => this.goItem = value;
+    }
+
+    public int Score
+    {
+        get => this.score;
     }
 }

@@ -22,6 +22,7 @@ public class AudioManager : SingletonGeneric<AudioManager>
     [SerializeField] AudioClip clipClickButton;
     [SerializeField] AudioClip clipCoin;
     [SerializeField] AudioClip clipPing;
+    [SerializeField] AudioClip clipBomb;
     [SerializeField] AudioClip[] clipsBG;
 
     void Start()
@@ -76,5 +77,15 @@ public class AudioManager : SingletonGeneric<AudioManager>
     public void PingSound()
     {
         audioSFXSource.PlayOneShot(clipPing);
+    }
+
+    public void BombSound()
+    {
+        audioSFXSource.PlayOneShot(clipBomb);
+    }
+
+    public void AudioClipSound(AudioClip clip)
+    {
+        audioSFXSource.PlayOneShot(clip);
     }
 }
