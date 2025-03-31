@@ -15,5 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PlantsZombiesScene.unity
     guid: 685697494822a6644a0930da0411cef1
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 8b0355425c9a6b44ea7971f94cc7d9c4, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 42f6076b7ebede845afd4910f6518fc9, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 221b694c3b7e5de48b8fc9fe2a746f70, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 408eeaab70c392b41934d07ff74bf971, type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: 8fd5ddc6276daab4593dc3208eab6bef, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 4547fba7ab184844f8da996ec0145ab7, type: 2}

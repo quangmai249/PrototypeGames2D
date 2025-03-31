@@ -10,6 +10,7 @@ public static class TagName
     public static string TAG_PLAYER = "Player";
     public static string TAG_PANEL = "Panel";
     public static string TAG_GAME_CONTROLLER = "GameController";
+    public static string TAG_DIAMOND = "Diamond";
 
     //name of scenes
     public static string NAME_SCENE_HOME = "HomeScene";
