@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AudioManager : SingletonGeneric<AudioManager>
@@ -19,15 +20,16 @@ public class AudioManager : SingletonGeneric<AudioManager>
 
     [Header("AudioClips")]
     [SerializeField] AudioClip clipClickButton;
-    [SerializeField] AudioClip clipBGGoldMiner;
-    [SerializeField] AudioClip clipBGPlantZombie;
+    [SerializeField] AudioClip clipCoin;
+    [SerializeField] AudioClip clipPing;
+    [SerializeField] AudioClip[] clipsBG;
 
     void Start()
     {
         sliderSFX.onValueChanged.AddListener(ChangeValueSFX);
         sliderMusic.onValueChanged.AddListener(ChangeValueMusic);
 
-        MusicBakground(clipBGGoldMiner);
+        this.PlayMusicBakground(TagName.NAME_SCENE_HOME);
     }
 
     private void ChangeValueMusic(float value)
@@ -51,15 +53,28 @@ public class AudioManager : SingletonGeneric<AudioManager>
         audioMixer.SetFloat(TagName.NAME_MIXER_SFX, Mathf.Log10(SettingManager.Instance.Setting.SfxVol) * 20);
     }
 
-    public void MusicBakground(AudioClip audioClip)
+    public void PlayMusicBakground(string name)
     {
-        audioMusicSource.clip = audioClip;
+        if (Searching.ByName(name, clipsBG) == null)
+            return;
+
+        audioMusicSource.clip = Searching.ByName<AudioClip>(name, clipsBG);
+        audioMusicSource.loop = true;
         audioMusicSource.Play();
-        audioSFXSource.loop = true;
     }
 
     public void ClickedButton()
     {
         audioSFXSource.PlayOneShot(clipClickButton);
+    }
+
+    public void CoinSound()
+    {
+        audioSFXSource.PlayOneShot(clipCoin);
+    }
+
+    public void PingSound()
+    {
+        audioSFXSource.PlayOneShot(clipPing);
     }
 }

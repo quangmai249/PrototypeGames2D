@@ -53,8 +53,6 @@ public class SettingManager : SingletonGeneric<SettingManager>
         setting
             = JsonUtility.FromJson<Setting>(PlayerPrefs.GetString(TagName.DATA_SETTING, JsonUtility.ToJson(new Setting())));
 
-        Debug.Log(setting.Language + "\t" + setting.ModeScreen + "\t" + setting.MusicVol + "\t" + setting.SfxVol);
-
         //languages
         if (setting.Language == 0)
             LocalizationSettings.SelectedLocale = vie;

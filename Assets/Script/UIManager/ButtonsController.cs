@@ -10,6 +10,7 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
     {
         SceneManager.LoadScene(nameScene);
         CanvasController.Instance.ActivePanel(TagName.PANEL_GAMEPLAY_SCENE);
+
         AudioManager.Instance.ClickedButton();
     }
 
@@ -42,6 +43,7 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
         SceneManager.LoadScene(TagName.NAME_SCENE_HOME);
         CanvasController.Instance.ActivePanel(TagName.PANEL_HOME_SCENE);
         AudioManager.Instance.ClickedButton();
+        AudioManager.Instance.PlayMusicBakground(TagName.NAME_SCENE_HOME);
     }
 
     public void ButtonPause()

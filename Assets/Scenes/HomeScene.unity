@@ -3102,7 +3102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5669,8 +5669,12 @@ MonoBehaviour:
   audioSFXSource: {fileID: 1993492076}
   audioMusicSource: {fileID: 1993492077}
   clipClickButton: {fileID: 8300000, guid: 7d3a1f3b585e7f44b9174d6f645f5f19, type: 3}
-  clipBGGoldMiner: {fileID: 8300000, guid: 638e778142f922d41a3c10faf1ec93a6, type: 3}
-  clipBGPlantZombie: {fileID: 8300000, guid: 638e778142f922d41a3c10faf1ec93a6, type: 3}
+  clipCoin: {fileID: 8300000, guid: 8e5dd737a22e6c946820151014cdd276, type: 3}
+  clipPing: {fileID: 8300000, guid: 363166fec5c8ce74b9bd5072e81171af, type: 3}
+  clipsBG:
+  - {fileID: 8300000, guid: 638e778142f922d41a3c10faf1ec93a6, type: 3}
+  - {fileID: 8300000, guid: ff21068d1b069c4469b8a8a39f2d3438, type: 3}
+  - {fileID: 8300000, guid: f15a64fd83f019c4089e8c4d9a19e2e8, type: 3}
 --- !u!82 &1993492076
 AudioSource:
   m_ObjectHideFlags: 0
