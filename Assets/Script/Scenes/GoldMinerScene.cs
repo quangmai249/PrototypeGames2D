@@ -19,6 +19,7 @@ public class GoldMinerScene : MonoBehaviour
     [SerializeField] TextMeshProUGUI txtEndGame;
     [SerializeField] TextMeshProUGUI txtNumBombs;
     [SerializeField] TextMeshProUGUI txtTarget;
+    [SerializeField] ParticleSystem parExplosion;
 
     private PlayerGoldMiner playerGoldMiner;
     private void Awake()
@@ -27,6 +28,7 @@ public class GoldMinerScene : MonoBehaviour
         playerGoldMiner = GameObject.FindGameObjectWithTag(TagName.TAG_PLAYER).GetComponent<PlayerGoldMiner>();
 
         panelEndGame.SetActive(false);
+        parExplosion.Stop();
     }
 
     private void Start()
@@ -72,6 +74,10 @@ public class GoldMinerScene : MonoBehaviour
 
         if (numBombs > 0 && playerGoldMiner.GoItem != null)
         {
+            parExplosion.transform.position
+                = new Vector3(playerGoldMiner.GoItem.transform.position.x, playerGoldMiner.GoItem.transform.position.y, -1);
+            parExplosion.Play();
+
             Destroy(playerGoldMiner.GoItem);
             numBombs--;
             txtNumBombs.text = numBombs.ToString();
