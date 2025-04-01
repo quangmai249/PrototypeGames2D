@@ -67,4 +67,12 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
         SettingManager.Instance.StartSwitchLanguage();
         AudioManager.Instance.ClickedButton();
     }
+
+    public void ButtonReplay()
+    {
+        Time.timeScale = 1;
+        DOTween.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        CanvasController.Instance.ActivePanel(TagName.PANEL_GAMEPLAY_SCENE);
+    }
 }

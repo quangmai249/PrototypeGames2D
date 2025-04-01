@@ -10,24 +10,27 @@ public class GoldMinerScene : MonoBehaviour
     [SerializeField] int numBombs = 3;
     [SerializeField] int maxScore = 1000;
     [SerializeField] float maxTime = 60;
+    [SerializeField] float defaultMaxTime;
+
+    [Header("Slider")]
     [SerializeField] Slider sliderTime;
+    [SerializeField] Image sliderFill;
 
     [Header("UI")]
     [SerializeField] GameObject tap;
-    [SerializeField] GameObject instruction;
-    [SerializeField] GameObject panelEndGame;
-    [SerializeField] TextMeshProUGUI txtEndGame;
     [SerializeField] TextMeshProUGUI txtNumBombs;
     [SerializeField] TextMeshProUGUI txtTarget;
     [SerializeField] ParticleSystem parExplosion;
 
     private PlayerGoldMiner playerGoldMiner;
+    private HomeScene homeScene;
+    private GameObject panelEndGame;
     private void Awake()
     {
         AudioManager.Instance.PlayMusicBakground(SceneManager.GetActiveScene().name);
-        playerGoldMiner = GameObject.FindGameObjectWithTag(TagName.TAG_PLAYER).GetComponent<PlayerGoldMiner>();
 
-        panelEndGame.SetActive(false);
+        playerGoldMiner = GameObject.FindGameObjectWithTag(TagName.TAG_PLAYER).GetComponent<PlayerGoldMiner>();
+        homeScene = GameObject.FindGameObjectWithTag(TagName.TAG_GAME_CONTROLLER).GetComponent<HomeScene>();
         parExplosion.Stop();
     }
 
@@ -36,12 +39,11 @@ public class GoldMinerScene : MonoBehaviour
         Time.timeScale = 1;
         DOTween.timeScale = 1;
 
-        tap.transform.DOScale(new Vector3(.5f, .5f, .5f), 2f)
+        tap.transform.DOScale(new Vector3(.85f, .85f, .85f), 2f)
           .SetLoops(-1, LoopType.Yoyo)
           .SetEase(Ease.InOutSine);
 
-        instruction.transform.DOScale(new Vector3(0, 0, 0), 5);
-
+        defaultMaxTime = maxTime;
         sliderTime.value = maxTime;
 
         txtNumBombs.text = numBombs.ToString();
@@ -50,24 +52,21 @@ public class GoldMinerScene : MonoBehaviour
 
     private void Update()
     {
-        if (playerGoldMiner.Score >= maxScore || maxTime <= 0)
-        {
-            if (playerGoldMiner.Score >= maxScore)
-                txtEndGame.text = "Win Game";
-            else
-                txtEndGame.text = "Lose Game";
+        if (Input.GetKeyDown(KeyCode.B))
+            this.ButtonBomb();
 
-            Time.timeScale = 0;
-            DOTween.timeScale = 0;
-
-            panelEndGame.SetActive(true);
-        }
+        if (playerGoldMiner.Score >= maxScore)
+            this.EndGame(true);
+        else if (maxTime <= 0)
+            this.EndGame(false);
 
         maxTime -= Time.deltaTime;
+
         sliderTime.value = maxTime;
+        ChangeSliderColor();
     }
 
-    public void ButtonBomb()
+    private void ButtonBomb()
     {
         if (Time.timeScale == 0)
             return;
@@ -86,14 +85,23 @@ public class GoldMinerScene : MonoBehaviour
         }
     }
 
-    public void ButtonReplay()
+    private void EndGame(bool isWin)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 0;
+        DOTween.timeScale = 0;
+        CanvasController.Instance.ActivePanel(TagName.PANEL_END_GAME);
+        CanvasController.Instance.SetTextPanelEndGame(isWin);
     }
 
-    public void ButtonHome()
+    private void ChangeSliderColor()
     {
-        SceneManager.LoadScene(TagName.NAME_SCENE_HOME);
-        CanvasController.Instance.ActivePanel(TagName.PANEL_HOME_SCENE);
+        if (sliderTime.value > defaultMaxTime / 2)
+            sliderFill.color = Color.green;
+        else if (sliderTime.value > defaultMaxTime / 3)
+            sliderFill.color = Color.yellow;
+        else if (sliderTime.value > 0)
+            sliderFill.color = Color.red;
+        else
+            sliderFill.color = Color.black;
     }
 }

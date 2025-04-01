@@ -5,6 +5,7 @@ public static class TagName
     public static string PANEL_HOME_SCENE = "PanelHomeScene";
     public static string PANEL_PAUSE = "PanelPause";
     public static string PANEL_GAMEPLAY_SCENE = "PanelGameplayScene";
+    public static string PANEL_END_GAME = "PanelEndGame";
 
     //tag
     public static string TAG_PLAYER = "Player";

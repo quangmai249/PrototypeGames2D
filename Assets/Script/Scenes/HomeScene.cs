@@ -9,9 +9,4 @@ public class HomeScene : MonoBehaviour
     {
         AudioManager.Instance.PlayMusicBakground(SceneManager.GetActiveScene().name);
     }
-
-    void Update()
-    {
-
-    }
 }

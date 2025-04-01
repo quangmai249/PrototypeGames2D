@@ -51,6 +51,10 @@ MonoBehaviour:
     m_Key: btnPause
     m_Metadata:
       m_Items: []
+  - m_Id: 1331766785888256
+    m_Key: btnQuit
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
