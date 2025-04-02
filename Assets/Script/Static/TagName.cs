@@ -12,9 +12,14 @@ public static class TagName
     public static string TAG_PANEL = "Panel";
     public static string TAG_GAME_CONTROLLER = "GameController";
     public static string TAG_DIAMOND = "Diamond";
+    public static string TAG_ENEMIES = "Enemies";
+    public static string TAG_PLANTS = "Plants";
+    public static string TAG_SPAWN_PLANTS_ZOMBIES = "SpawnPlantsZombies";
 
     //name of scenes
     public static string NAME_SCENE_HOME = "HomeScene";
+    public static string NAME_SCENE_GOLD_MINER = "GoldMinerScene";
+    public static string NAME_SCENE_PLANTS_ZOMBIES = "PlantsZombiesScene";
 
     //name of mixer
     public static string NAME_MIXER_MUSIC = "Music";

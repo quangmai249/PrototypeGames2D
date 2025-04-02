@@ -335,8 +335,6 @@ MonoBehaviour:
   sliderTime: {fileID: 1720749836}
   sliderFill: {fileID: 479836338}
   tap: {fileID: 1357996697}
-  panelEndGame: {fileID: 0}
-  txtEndGame: {fileID: 0}
   txtNumBombs: {fileID: 487691118}
   txtTarget: {fileID: 768732092}
   parExplosion: {fileID: 1471421980}

@@ -1,11 +1,14 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ButtonsController : SingletonGeneric<ButtonsController>
 {
+    private bool isIncreaseSpeed = false;
+
     public void ButtonPlay(string nameScene)
     {
         SceneManager.LoadScene(nameScene);
@@ -32,16 +35,27 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
         PlayerPrefs.Save();
 
         SettingManager.Instance.SetDefaultSetting();
-        CanvasController.Instance.ActivePanel(TagName.PANEL_PAUSE);
+
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "HomeScene":
+                CanvasController.Instance.ActivePanel(TagName.PANEL_HOME_SCENE);
+                break;
+            case "GoldMinerScene":
+                CanvasController.Instance.ActivePanel(TagName.PANEL_PAUSE);
+                break;
+            case "PlantsZombiesScene":
+                CanvasController.Instance.ActivePanel(TagName.PANEL_PAUSE);
+                break;
+            default: break;
+        }
+
         AudioManager.Instance.ClickedButton();
     }
 
     public void ButtonHome()
     {
-        Time.timeScale = 1;
-        DOTween.timeScale = 1;
         SceneManager.LoadScene(TagName.NAME_SCENE_HOME);
-        CanvasController.Instance.ActivePanel(TagName.PANEL_HOME_SCENE);
         AudioManager.Instance.ClickedButton();
         AudioManager.Instance.PlayMusicBakground(TagName.NAME_SCENE_HOME);
     }
@@ -70,9 +84,28 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
 
     public void ButtonReplay()
     {
-        Time.timeScale = 1;
-        DOTween.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        CanvasController.Instance.ActivePanel(TagName.PANEL_GAMEPLAY_SCENE);
+    }
+
+    public void ButtonIncreaseSpeed(TextMeshProUGUI txtSpeed)
+    {
+        if (!isIncreaseSpeed)
+        {
+            Time.timeScale = 2;
+            DOTween.timeScale = 2;
+
+            txtSpeed.text = "x1 speed";
+
+            isIncreaseSpeed = !isIncreaseSpeed;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            DOTween.timeScale = 1;
+
+            txtSpeed.text = "x2 speed";
+
+            isIncreaseSpeed = !isIncreaseSpeed;
+        }
     }
 }

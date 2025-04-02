@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -47,6 +48,11 @@ public class CanvasController : SingletonGeneric<CanvasController>
 
     public void SetTextPanelEndGame(bool isWin)
     {
+        Time.timeScale = 0;
+        DOTween.timeScale = 0;
+
+        this.ActivePanel(TagName.PANEL_END_GAME);
+
         foreach (Transform item in _panelEndGame.transform)
         {
             if (isWin)
