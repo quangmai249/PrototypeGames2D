@@ -7,6 +7,9 @@ TagManager:
   - Panel
   - Diamond
   - HookMiner
+  - Enemies
+  - SpawnPlantsZombies
+  - Plants
   layers:
   - Default
   - TransparentFX

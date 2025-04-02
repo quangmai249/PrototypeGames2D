@@ -60,6 +60,7 @@ public class SettingManager : SingletonGeneric<SettingManager>
             LocalizationSettings.SelectedLocale = en;
 
         //modeScene
+        dropDownMode.value = setting.ModeScreen;
         if (setting.ModeScreen == 0)
             Screen.fullScreen = true;
         else
