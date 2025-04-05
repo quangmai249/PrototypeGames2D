@@ -10,7 +10,9 @@ public class HouseBase : MonoBehaviour
     private void Start()
     {
         _parExplosion = Instantiate(parExplosion);
+        _parExplosion.transform.SetParent(this.gameObject.transform);
         _parExplosion.transform.position = this.transform.position;
+
         _plantsZombiesScene = GameObject.FindGameObjectWithTag(TagName.TAG_GAME_CONTROLLER).GetComponent<PlantsZombiesScene>();
     }
 

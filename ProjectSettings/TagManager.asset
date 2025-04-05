@@ -10,6 +10,9 @@ TagManager:
   - Enemies
   - SpawnPlantsZombies
   - Plants
+  - ConstructionPoints
+  - Construction
+  - PosShoppingDefault
   layers:
   - Default
   - TransparentFX

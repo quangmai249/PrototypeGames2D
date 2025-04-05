@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class PlantsZombiesScene : MonoBehaviour
 {
     [Header("Gameplay")]
+    [SerializeField] int gold = 500;
     [SerializeField] float maxHealth = 100;
     [SerializeField] float maxTimeplay = 120;
 
@@ -82,5 +83,11 @@ public class PlantsZombiesScene : MonoBehaviour
         maxHealth -= value;
         sliderHealth.value = maxHealth;
         txtHealth.text = maxHealth.ToString() + "/" + defaultMaxHealth;
+    }
+
+    public int Gold
+    {
+        get => this.gold;
+        set => this.gold = value;
     }
 }

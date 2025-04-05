@@ -14,6 +14,8 @@ public static class TagName
     public static string TAG_DIAMOND = "Diamond";
     public static string TAG_ENEMIES = "Enemies";
     public static string TAG_PLANTS = "Plants";
+    public static string TAG_CONSTRUCTION = "Construction";
+    public static string TAG_POS_SHOPPING_DEFAULT = "PosShoppingDefault";
     public static string TAG_SPAWN_PLANTS_ZOMBIES = "SpawnPlantsZombies";
 
     //name of scenes
