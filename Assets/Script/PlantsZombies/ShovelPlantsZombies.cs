@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class ShovelPlantsZombies : MonoBehaviour
@@ -9,9 +10,11 @@ public class ShovelPlantsZombies : MonoBehaviour
     private Vector3 posDefault;
     private Vector3 pos;
     private Collider2D plant;
+    private PlantsZombiesScene _plantsZombiesScene;
 
     private void Start()
     {
+        _plantsZombiesScene = GameObject.FindGameObjectWithTag(TagName.TAG_GAME_CONTROLLER).GetComponent<PlantsZombiesScene>();
         posDefault = this.transform.position;
     }
 
@@ -23,7 +26,10 @@ public class ShovelPlantsZombies : MonoBehaviour
             this.transform.position = posDefault;
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
             isClicked = false;
+            _plantsZombiesScene.IsPickup = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && plant != null)
         {
@@ -31,12 +37,14 @@ public class ShovelPlantsZombies : MonoBehaviour
             plant.GetComponent<Plants>().SetDefaultConstruction();
             SpawnPlantsZombies.Instance.EnqueueObj(plant.gameObject);
             isClicked = false;
+            _plantsZombiesScene.IsPickup = false;
         }
     }
 
     private void OnMouseDown()
     {
         isClicked = true;
+        _plantsZombiesScene.IsPickup = true;
     }
 
     private Vector3 posMouse()

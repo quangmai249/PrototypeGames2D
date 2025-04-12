@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class PlantsZombiesScene : MonoBehaviour
 {
     [Header("Gameplay")]
+    [SerializeField] bool isPickup = false;
     [SerializeField] float gold = 500;
     [SerializeField] float maxHealth = 100;
     [SerializeField] float maxTimeplay = 120;
@@ -95,5 +96,11 @@ public class PlantsZombiesScene : MonoBehaviour
             this.gold = value;
             this.txtGold.text = this.gold.ToString() + "$";
         }
+    }
+
+    public bool IsPickup
+    {
+        get => this.isPickup;
+        set => this.isPickup = value;
     }
 }

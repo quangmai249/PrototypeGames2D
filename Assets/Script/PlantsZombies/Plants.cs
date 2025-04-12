@@ -26,16 +26,15 @@ public class Plants : MonoBehaviour
     private float healthDefault = 0f;
 
     private Vector3 _defaultPos;
+    private Vector3 _posMouse;
     private RaycastHit2D _raycastHit2D;
 
     private GameObject _bullet;
     private GameObject _canvasPlants;
     private GameObject _construction;
 
-    private PosShoppingDefault _posShoppingDefault;
-    private PlantsZombiesScene _plantsZombiesScene;
-
     private Zombies _enemies;
+    private PlantsZombiesScene _plantsZombiesScene;
     private void Awake()
     {
         _canvasPlants = Instantiate(canvasPlants);
@@ -46,9 +45,6 @@ public class Plants : MonoBehaviour
     private void Start()
     {
         _plantsZombiesScene = GameObject.FindGameObjectWithTag(TagName.TAG_GAME_CONTROLLER).GetComponent<PlantsZombiesScene>();
-        _posShoppingDefault = GameObject.FindGameObjectWithTag(TagName.TAG_POS_SHOPPING_DEFAULT).GetComponent<PosShoppingDefault>();
-
-        _defaultPos = _posShoppingDefault.transform.position;
 
         isReplace = false;
 
@@ -63,6 +59,13 @@ public class Plants : MonoBehaviour
 
     private void Update()
     {
+        if (!isReplace && Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            SpawnPlantsZombies.Instance.EnqueueObj(this.gameObject);
+            _plantsZombiesScene.Gold += price;
+            return;
+        }
+
         if (this.health <= 0)
         {
             SetDefaultStats();
@@ -74,6 +77,15 @@ public class Plants : MonoBehaviour
             this.SetSliderHealthBar();
 
         this.DetectTarget();
+    }
+
+    private void FixedUpdate()
+    {
+        if (!isReplace)
+        {
+            this.gameObject.transform.position = this.PosMouse();
+            return;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -142,6 +154,7 @@ public class Plants : MonoBehaviour
             _construction.GetComponent<ConstructionPoints>().IsFull = true;
 
             isReplace = true;
+            _plantsZombiesScene.IsPickup = false;
         }
         else
             this.gameObject.transform.position = _defaultPos;
@@ -255,5 +268,12 @@ public class Plants : MonoBehaviour
         }
 
         isAttacking = false;
+    }
+
+    private Vector3 PosMouse()
+    {
+        _posMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _posMouse.z = 0;
+        return _posMouse;
     }
 }
