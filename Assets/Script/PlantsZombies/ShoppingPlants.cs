@@ -14,7 +14,6 @@ public class ShoppingPlants : MonoBehaviour
     private GameObject _go;
     private GameObject _canvasPricePlants;
 
-    private PosShoppingDefault _posShoppingDefault;
     private PlantsZombiesScene _plantsZombiesScene;
 
     private void Start()
@@ -22,27 +21,22 @@ public class ShoppingPlants : MonoBehaviour
         this.SetDefaultCanvasPricePlants();
 
         _plantsZombiesScene = GameObject.FindGameObjectWithTag(TagName.TAG_GAME_CONTROLLER).GetComponent<PlantsZombiesScene>();
-        _posShoppingDefault = GameObject.FindGameObjectWithTag(TagName.TAG_POS_SHOPPING_DEFAULT).GetComponent<PosShoppingDefault>();
     }
 
     private void OnMouseDown()
     {
-        if (_posShoppingDefault.IsFull)
+        if (_plantsZombiesScene.Gold <= 0 || _plantsZombiesScene.Gold < price || _plantsZombiesScene.IsPickup)
         {
-            Debug.Log("Position is full");
-            return;
-        }
-
-        if (_plantsZombiesScene.Gold <= 0 || _plantsZombiesScene.Gold < price)
-        {
-            Debug.Log("Not enough gold");
+            Debug.Log("Not enough gold or Picked up something");
             return;
         }
 
         _go = SpawnPlantsZombies.Instance.DequeuePlantsByID(id);
         _plantsZombiesScene.Gold -= _go.GetComponent<Plants>().Price;
-        _go.transform.position = _posShoppingDefault.gameObject.transform.position;
+        _go.transform.position = this.transform.position;
         _go.SetActive(true);
+
+        _plantsZombiesScene.IsPickup = true;
     }
 
     private void SetDefaultCanvasPricePlants()

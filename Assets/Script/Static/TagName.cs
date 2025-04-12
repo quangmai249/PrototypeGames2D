@@ -17,7 +17,6 @@ public static class TagName
     public const string TAG_ENEMIES = "Enemies";
     public const string TAG_PLANTS = "Plants";
     public const string TAG_CONSTRUCTION = "Construction";
-    public const string TAG_POS_SHOPPING_DEFAULT = "PosShoppingDefault";
     public const string TAG_POS_TOTAL_GOLD = "PosTotalGold";
     public const string TAG_SPAWN_PLANTS_ZOMBIES = "SpawnPlantsZombies";
     public const string TAG_SHOVEL_PLANTS_ZOMBIES = "ShovelPlantsZombies";
