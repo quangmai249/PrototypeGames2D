@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 2321044765872137820}
   - component: {fileID: -4475640615223540016}
   - component: {fileID: 2128933433737704178}
+  - component: {fileID: 5454741451322068029}
   - component: {fileID: 1048520883246973272}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: vulture1
   m_TagString: Plants
   m_Icon: {fileID: 0}
@@ -100,8 +101,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isReplace: 0
+  isAttacked: 0
+  isAttacking: 0
   id: 0
+  price: 100
+  health: 100
+  rate: 2
+  detectDistance: 9
+  timeDoubleClick: 0.25
+  numBullets: 10
+  plantBullets: {fileID: 2413248673014226814, guid: 50827c3b07ca829438a08dcd9255c5cc, type: 3}
   posConstruction: {x: 0, y: 0, z: 0}
+  canvasPlants: {fileID: 8826543837973926978, guid: bf91410cbbea20542afdb3f854a54986, type: 3}
+  sliderHealthBar: {fileID: 0}
 --- !u!61 &2128933433737704178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,6 +159,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39, y: 0.39}
   m_EdgeRadius: 0
+--- !u!50 &5454741451322068029
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955251004662823514}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!95 &1048520883246973272
 Animator:
   serializedVersion: 5

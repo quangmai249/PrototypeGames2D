@@ -1709,7 +1709,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropDownMode: {fileID: 1688584753}
-  dropDownResolution: {fileID: 0}
 --- !u!4 &469331880
 Transform:
   m_ObjectHideFlags: 0
@@ -1806,6 +1805,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numDefault: 10
+  rewards:
+  - {fileID: 7116690864158027845, guid: adc9842d4808e8b4ebe244205e0e0d58, type: 3}
+  - {fileID: 1254462485189683922, guid: d04933de38ee3c84eb24b64402633b75, type: 3}
   enemies:
   - {fileID: 5165417154973746650, guid: 8ee988fa1aff27e42b739a355f343b76, type: 3}
   - {fileID: 4594808103145894795, guid: 5913406d8c6e2824ca0cbcaed10070ac, type: 3}
@@ -1816,6 +1818,8 @@ MonoBehaviour:
   - {fileID: 8382057973153522113, guid: 24e630213cc3e074abe0544b721f0243, type: 3}
   - {fileID: 8957804243224482386, guid: 818dbf8224f8449408f9e66dbfe6fb91, type: 3}
   - {fileID: 6955251004662823514, guid: 4a4dc3c24fd79ea4eaf457cf36d87c51, type: 3}
+  plantsBullets:
+  - {fileID: 2413248673014226814, guid: 50827c3b07ca829438a08dcd9255c5cc, type: 3}
 --- !u!1 &504948148
 GameObject:
   m_ObjectHideFlags: 0

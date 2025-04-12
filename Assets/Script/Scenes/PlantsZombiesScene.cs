@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class PlantsZombiesScene : MonoBehaviour
 {
     [Header("Gameplay")]
-    [SerializeField] int gold = 500;
+    [SerializeField] float gold = 500;
     [SerializeField] float maxHealth = 100;
     [SerializeField] float maxTimeplay = 120;
 
@@ -21,6 +21,7 @@ public class PlantsZombiesScene : MonoBehaviour
     [SerializeField] Slider sliderTimePlay;
     [SerializeField] Slider sliderHealth;
     [SerializeField] TextMeshProUGUI txtHealth;
+    [SerializeField] TextMeshProUGUI txtGold;
 
     private float defaultMaxTimeplay;
     private float defaultMaxHealth;
@@ -36,7 +37,7 @@ public class PlantsZombiesScene : MonoBehaviour
     {
         Time.timeScale = 1;
         DOTween.timeScale = 1;
-        CanvasController.Instance.ActivePanel(TagName.PANEL_GAMEPLAY_SCENE);
+        CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_GAMEPLAY_SCENE);
 
         AudioManager.Instance.PlayMusicBakground(SceneManager.GetActiveScene().name);
 
@@ -50,6 +51,7 @@ public class PlantsZombiesScene : MonoBehaviour
         sliderTimePlay.maxValue = defaultMaxTimeplay;
         sliderTimePlay.value = defaultMaxTimeplay;
 
+        txtGold.text = gold.ToString() + "$";
         txtHealth.text = sliderHealth.value.ToString() + "/" + defaultMaxHealth;
     }
 
@@ -85,9 +87,13 @@ public class PlantsZombiesScene : MonoBehaviour
         txtHealth.text = maxHealth.ToString() + "/" + defaultMaxHealth;
     }
 
-    public int Gold
+    public float Gold
     {
         get => this.gold;
-        set => this.gold = value;
+        set
+        {
+            this.gold = value;
+            this.txtGold.text = this.gold.ToString() + "$";
+        }
     }
 }

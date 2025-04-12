@@ -17,16 +17,16 @@ public class CanvasController : SingletonGeneric<CanvasController>
     private void Start()
     {
         this.SetPanelDefault();
-        this.ActivePanel(TagName.PANEL_HOME_SCENE);
+        this.ActivePanel(TagName.NAME_PANEL_HOME_SCENE);
     }
 
     private void SetPanelDefault()
     {
-        _panelPause = Searching.GameObjectByName(TagName.PANEL_PAUSE, TagName.TAG_PANEL);
-        _panelSetting = Searching.GameObjectByName(TagName.PANEL_SETTING, TagName.TAG_PANEL);
-        _panelHomeScene = Searching.GameObjectByName(TagName.PANEL_HOME_SCENE, TagName.TAG_PANEL);
-        _panelGameplayScene = Searching.GameObjectByName(TagName.PANEL_GAMEPLAY_SCENE, TagName.TAG_PANEL);
-        _panelEndGame = Searching.GameObjectByName(TagName.PANEL_END_GAME, TagName.TAG_PANEL);
+        _panelPause = Searching.GameObjectByName(TagName.NAME_PANEL_PAUSE, TagName.TAG_PANEL);
+        _panelSetting = Searching.GameObjectByName(TagName.NAME_PANEL_SETTING, TagName.TAG_PANEL);
+        _panelHomeScene = Searching.GameObjectByName(TagName.NAME_PANEL_HOME_SCENE, TagName.TAG_PANEL);
+        _panelGameplayScene = Searching.GameObjectByName(TagName.NAME_PANEL_GAMEPLAY_SCENE, TagName.TAG_PANEL);
+        _panelEndGame = Searching.GameObjectByName(TagName.NAME_PANEL_END_GAME, TagName.TAG_PANEL);
 
         _panels.Add(_panelPause);
         _panels.Add(_panelSetting);
@@ -51,7 +51,7 @@ public class CanvasController : SingletonGeneric<CanvasController>
         Time.timeScale = 0;
         DOTween.timeScale = 0;
 
-        this.ActivePanel(TagName.PANEL_END_GAME);
+        this.ActivePanel(TagName.NAME_PANEL_END_GAME);
 
         foreach (Transform item in _panelEndGame.transform)
         {
