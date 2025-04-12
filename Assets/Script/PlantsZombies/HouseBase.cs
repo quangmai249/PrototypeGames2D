@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class HouseBase : MonoBehaviour
 {
+    [SerializeField] float takeDamage = 10;
     [SerializeField] GameObject parExplosion;
+
     private GameObject _parExplosion;
     private PlantsZombiesScene _plantsZombiesScene;
     private void Start()
@@ -24,7 +26,7 @@ public class HouseBase : MonoBehaviour
             AudioManager.Instance.BombSound();
 
             _parExplosion.GetComponent<ParticleSystem>().Play();
-            _plantsZombiesScene.ChangeValueHealth(collision.GetComponent<Zombies>().Damage);
+            _plantsZombiesScene.ChangeValueHealth(this.takeDamage);
         }
     }
 }

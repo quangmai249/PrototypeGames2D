@@ -38,7 +38,7 @@ public class GoldMinerScene : MonoBehaviour
     {
         Time.timeScale = 1;
         DOTween.timeScale = 1;
-        CanvasController.Instance.ActivePanel(TagName.PANEL_GAMEPLAY_SCENE);
+        CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_GAMEPLAY_SCENE);
 
         tap.transform.DOScale(new Vector3(.85f, .85f, .85f), 2f)
           .SetLoops(-1, LoopType.Yoyo)
@@ -90,7 +90,7 @@ public class GoldMinerScene : MonoBehaviour
     {
         Time.timeScale = 0;
         DOTween.timeScale = 0;
-        CanvasController.Instance.ActivePanel(TagName.PANEL_END_GAME);
+        CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_END_GAME);
         CanvasController.Instance.SetTextPanelEndGame(isWin);
     }
 

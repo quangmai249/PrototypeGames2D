@@ -12,14 +12,14 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
     public void ButtonPlay(string nameScene)
     {
         SceneManager.LoadScene(nameScene);
-        CanvasController.Instance.ActivePanel(TagName.PANEL_GAMEPLAY_SCENE);
+        CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_GAMEPLAY_SCENE);
 
         AudioManager.Instance.ClickedButton();
     }
 
     public void ButtonSetting()
     {
-        CanvasController.Instance.ActivePanel(TagName.PANEL_SETTING);
+        CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_SETTING);
         AudioManager.Instance.ClickedButton();
     }
 
@@ -39,13 +39,13 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
         switch (SceneManager.GetActiveScene().name)
         {
             case "HomeScene":
-                CanvasController.Instance.ActivePanel(TagName.PANEL_HOME_SCENE);
+                CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_HOME_SCENE);
                 break;
             case "GoldMinerScene":
-                CanvasController.Instance.ActivePanel(TagName.PANEL_PAUSE);
+                CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_PAUSE);
                 break;
             case "PlantsZombiesScene":
-                CanvasController.Instance.ActivePanel(TagName.PANEL_PAUSE);
+                CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_PAUSE);
                 break;
             default: break;
         }
@@ -64,7 +64,7 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
     {
         Time.timeScale = 0;
         DOTween.timeScale = 0;
-        CanvasController.Instance.ActivePanel(TagName.PANEL_PAUSE);
+        CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_PAUSE);
         AudioManager.Instance.ClickedButton();
     }
 
@@ -72,7 +72,7 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
     {
         Time.timeScale = 1;
         DOTween.timeScale = 1;
-        CanvasController.Instance.ActivePanel(TagName.PANEL_GAMEPLAY_SCENE);
+        CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_GAMEPLAY_SCENE);
         AudioManager.Instance.ClickedButton();
     }
 

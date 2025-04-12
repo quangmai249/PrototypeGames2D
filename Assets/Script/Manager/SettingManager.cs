@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SettingManager : SingletonGeneric<SettingManager>
 {
-    [SerializeField] TMP_Dropdown dropDownMode, dropDownResolution;
+    [SerializeField] TMP_Dropdown dropDownMode;
 
     private Locale en, vie;
     private Setting setting;

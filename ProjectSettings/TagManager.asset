@@ -13,14 +13,17 @@ TagManager:
   - ConstructionPoints
   - Construction
   - PosShoppingDefault
+  - Bullets
+  - Rewards
+  - PosTotalGold
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Plants
   - Water
   - UI
-  - 
+  - Enemies
   - 
   - 
   - 

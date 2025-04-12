@@ -10,7 +10,7 @@ public class HomeScene : MonoBehaviour
     {
         Time.timeScale = 1;
         DOTween.timeScale = 1;
-        CanvasController.Instance.ActivePanel(TagName.PANEL_HOME_SCENE);
+        CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_HOME_SCENE);
 
         AudioManager.Instance.PlayMusicBakground(SceneManager.GetActiveScene().name);
     }
