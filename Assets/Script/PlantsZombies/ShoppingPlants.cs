@@ -31,7 +31,7 @@ public class ShoppingPlants : MonoBehaviour
             return;
         }
 
-        _go = SpawnPlantsZombies.Instance.DequeuePlantsByID(id);
+        _go = SpawnPlantsZombies.Instance.DequeueByID(id, TagName.TAG_PLANTS);
         _plantsZombiesScene.Gold -= _go.GetComponent<Plants>().Price;
         _go.transform.position = this.transform.position;
         _go.SetActive(true);

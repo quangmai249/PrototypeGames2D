@@ -1820,6 +1820,10 @@ MonoBehaviour:
   - {fileID: 6955251004662823514, guid: 4a4dc3c24fd79ea4eaf457cf36d87c51, type: 3}
   plantsBullets:
   - {fileID: 2413248673014226814, guid: 50827c3b07ca829438a08dcd9255c5cc, type: 3}
+  - {fileID: 2413248673014226814, guid: be6733864f49a2e4bad19e13383d7f33, type: 3}
+  - {fileID: 2413248673014226814, guid: 1b8a5ce44f1d8714a8792abb07a35dda, type: 3}
+  - {fileID: 2413248673014226814, guid: 84871c8750eafc04eabd0d66bf9f4db4, type: 3}
+  - {fileID: 2413248673014226814, guid: 39de4b6d1af088c41ada5cf486c9659a, type: 3}
 --- !u!1 &504948148
 GameObject:
   m_ObjectHideFlags: 0

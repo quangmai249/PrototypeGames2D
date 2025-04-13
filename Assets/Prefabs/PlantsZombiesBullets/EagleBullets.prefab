@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3382235768970875757}
   - component: {fileID: 2361168911520309769}
   m_Layer: 0
-  m_Name: BatBullets
+  m_Name: EagleBullets
   m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.7294118, g: 0.10196079, b: 0.7568628, a: 1}
+  m_Color: {r: 0.7075472, g: 0.62411004, b: 0.6678152, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b842e73b293158347ae544b6b08fe73b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 4
-  speed: 1
+  id: 1
+  speed: 1.5
 --- !u!58 &-3382235768970875757
 CircleCollider2D:
   m_ObjectHideFlags: 0

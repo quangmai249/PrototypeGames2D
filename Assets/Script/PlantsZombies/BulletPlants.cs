@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletPlants : MonoBehaviour
 {
+    [SerializeField] int id = 0;
     [SerializeField] float speed = 0.5f;
 
     private Plants _plant;
@@ -25,5 +26,16 @@ public class BulletPlants : MonoBehaviour
     {
         get => _plant;
         set => _plant = value;
+    }
+
+    public int ID
+    {
+        get => this.id;
+    }
+
+    public float Speed
+    {
+        get => this.speed;
+        set => this.speed = value;
     }
 }
