@@ -33,6 +33,8 @@ public class PlantsZombiesScene : MonoBehaviour
 
     private void Awake()
     {
+        ButtonsController.Instance
+            .SetTextSpeedGame(GameObject.FindGameObjectWithTag(TagName.TAG_TXT_SPEED_GAME).GetComponent<TextMeshProUGUI>(), Time.timeScale);
         SpawnPlantsZombies.Instance.EnqueneAllObj();
         audioSource = GetComponent<AudioSource>();
     }
@@ -42,7 +44,6 @@ public class PlantsZombiesScene : MonoBehaviour
         Time.timeScale = 1;
         DOTween.timeScale = 1;
         CanvasController.Instance.ActivePanel(TagName.NAME_PANEL_GAMEPLAY_SCENE);
-
         AudioManager.Instance.PlayMusicBakground(SceneManager.GetActiveScene().name);
 
         defaultTimeSpawn = this.timeSpawn;

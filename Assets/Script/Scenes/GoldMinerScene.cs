@@ -27,6 +27,8 @@ public class GoldMinerScene : MonoBehaviour
     private GameObject panelEndGame;
     private void Awake()
     {
+        ButtonsController.Instance
+            .SetTextSpeedGame(GameObject.FindGameObjectWithTag(TagName.TAG_TXT_SPEED_GAME).GetComponent<TextMeshProUGUI>(), Time.timeScale);
         AudioManager.Instance.PlayMusicBakground(SceneManager.GetActiveScene().name);
 
         playerGoldMiner = GameObject.FindGameObjectWithTag(TagName.TAG_PLAYER).GetComponent<PlayerGoldMiner>();

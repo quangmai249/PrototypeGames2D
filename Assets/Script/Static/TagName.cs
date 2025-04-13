@@ -20,6 +20,7 @@ public static class TagName
     public const string TAG_POS_TOTAL_GOLD = "PosTotalGold";
     public const string TAG_SPAWN_PLANTS_ZOMBIES = "SpawnPlantsZombies";
     public const string TAG_SHOVEL_PLANTS_ZOMBIES = "ShovelPlantsZombies";
+    public const string TAG_TXT_SPEED_GAME = "TxtSpeedGame";
 
     //name of scenes
     public const string NAME_SCENE_HOME = "HomeScene";
