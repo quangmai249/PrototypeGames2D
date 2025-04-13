@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -94,7 +94,7 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
             Time.timeScale = 2;
             DOTween.timeScale = 2;
 
-            txtSpeed.text = "x1 speed";
+            this.SetTextSpeedGame(txtSpeed, Time.timeScale);
 
             isIncreaseSpeed = !isIncreaseSpeed;
         }
@@ -103,9 +103,17 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
             Time.timeScale = 1;
             DOTween.timeScale = 1;
 
-            txtSpeed.text = "x2 speed";
+            this.SetTextSpeedGame(txtSpeed, Time.timeScale);
 
             isIncreaseSpeed = !isIncreaseSpeed;
         }
+    }
+
+    public void SetTextSpeedGame(TextMeshProUGUI txtSpeed, float timeScale)
+    {
+        if (SettingManager.Instance.Setting.Language == 0)
+            txtSpeed.text = $"Tốc độ x{timeScale}";
+        else if (SettingManager.Instance.Setting.Language == 1)
+            txtSpeed.text = $"x{timeScale} speed";
     }
 }
