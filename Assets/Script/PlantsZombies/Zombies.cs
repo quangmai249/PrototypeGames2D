@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Zombies : BaseEnemies
 {
     [SerializeField] GameObject canvasZombies;
+    [SerializeField] GameObject parAttacked;
 
     private float speedDefault;
     private float healthDefault;
@@ -15,6 +16,7 @@ public class Zombies : BaseEnemies
     private Plants plants;
     private Slider sliderHealthBar;
     private GameObject _canvasZombies;
+    private ParticleSystem _parAttacked;
     private RaycastHit2D raycastHit2D;
 
     protected override void Awake()
@@ -36,6 +38,8 @@ public class Zombies : BaseEnemies
 
         this.sliderHealthBar.maxValue = this.healthDefault;
         this.sliderHealthBar.value = this.healthDefault;
+
+        _parAttacked = Instantiate(parAttacked).GetComponent<ParticleSystem>();
     }
 
     protected override void Update()
@@ -112,5 +116,10 @@ public class Zombies : BaseEnemies
             plants.GetComponent<SpriteRenderer>().color = Color.white;
             yield return new WaitForSeconds(this.rate / 2);
         }
+    }
+
+    public ParticleSystem ParAttacked
+    {
+        get => this._parAttacked;
     }
 }

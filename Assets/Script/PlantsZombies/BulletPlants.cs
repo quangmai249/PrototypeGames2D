@@ -8,6 +8,7 @@ public class BulletPlants : MonoBehaviour
     [SerializeField] float speed = 0.5f;
 
     private Plants _plant;
+    private Zombies _zombies;
     private void Update()
     {
         this.transform.Translate(Vector3.right * speed * Time.deltaTime);
@@ -17,7 +18,12 @@ public class BulletPlants : MonoBehaviour
     {
         if (collision.CompareTag(TagName.TAG_ENEMIES))
         {
-            collision.GetComponent<Zombies>().Health -= _plant.Damage;
+            _zombies = collision.GetComponent<Zombies>();
+            _zombies.Health -= _plant.Damage;
+
+            _zombies.ParAttacked.transform.position = _zombies.transform.position;
+            _zombies.ParAttacked.Play();
+
             SpawnPlantsZombies.Instance.EnqueueObj(this.gameObject);
         }
     }

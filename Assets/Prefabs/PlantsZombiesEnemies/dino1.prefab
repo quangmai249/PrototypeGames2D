@@ -107,6 +107,7 @@ MonoBehaviour:
   rate: 0.25
   detectDistance: 0.1
   canvasZombies: {fileID: 8826543837973926978, guid: 05476daa6e5e708408ee1a93cea8ab6c, type: 3}
+  parAttacked: {fileID: 5700784828077083704, guid: ed962e35f7fa6f34f8d27aa6d19ea293, type: 3}
 --- !u!95 &-3567866268738875155
 Animator:
   serializedVersion: 5
