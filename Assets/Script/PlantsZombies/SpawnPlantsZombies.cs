@@ -89,36 +89,44 @@ public class SpawnPlantsZombies : SingletonGeneric<SpawnPlantsZombies>
         switch (tag)
         {
             case TagName.TAG_ENEMIES:
-                _go = Instantiate(enemies[Random.Range(0, enemies.Length)]);
-                _go.transform.SetParent(this.transform);
-                _go.SetActive(false);
-                queueEnemies.Enqueue(_go);
-                break;
-            case TagName.TAG_PLANTS:
-                for (int i = 0; i < plants.Length; i++)
                 {
-                    _go = Instantiate(plants[i]);
+                    _go = Instantiate(enemies[Random.Range(0, enemies.Length)]);
                     _go.transform.SetParent(this.transform);
                     _go.SetActive(false);
-                    queuePlants.Enqueue(_go);
+                    queueEnemies.Enqueue(_go);
+                    break;
+                }
+            case TagName.TAG_PLANTS:
+                {
+                    for (int i = 0; i < plants.Length; i++)
+                    {
+                        _go = Instantiate(plants[i]);
+                        _go.transform.SetParent(this.transform);
+                        _go.SetActive(false);
+                        queuePlants.Enqueue(_go);
+                    }
                 }
                 break;
             case TagName.TAG_BULLETS:
-                for (int i = 0; i < plantsBullets.Length; i++)
                 {
-                    _go = Instantiate(plantsBullets[i]);
-                    _go.transform.SetParent(this.transform);
-                    _go.SetActive(false);
-                    queueBullets.Enqueue(_go);
+                    for (int i = 0; i < plantsBullets.Length; i++)
+                    {
+                        _go = Instantiate(plantsBullets[i]);
+                        _go.transform.SetParent(this.transform);
+                        _go.SetActive(false);
+                        queueBullets.Enqueue(_go);
+                    }
                 }
                 break;
             case TagName.TAG_REWARDS:
-                for (int i = 0; i < rewards.Length; i++)
                 {
-                    _go = Instantiate(rewards[Random.Range(0, rewards.Length)]);
-                    _go.transform.SetParent(this.transform);
-                    _go.SetActive(false);
-                    queueRewards.Enqueue(_go);
+                    for (int i = 0; i < rewards.Length; i++)
+                    {
+                        _go = Instantiate(rewards[Random.Range(0, rewards.Length)]);
+                        _go.transform.SetParent(this.transform);
+                        _go.SetActive(false);
+                        queueRewards.Enqueue(_go);
+                    }
                 }
                 break;
         }
@@ -129,35 +137,60 @@ public class SpawnPlantsZombies : SingletonGeneric<SpawnPlantsZombies>
         switch (tag)
         {
             case TagName.TAG_ENEMIES:
-                if (queueEnemies.Count == 0)
-                    CreateObj(tag);
-                return queueEnemies.Dequeue();
+                {
+                    if (queueEnemies.Count == 0)
+                        CreateObj(tag);
+                    return queueEnemies.Dequeue();
+                }
             case TagName.TAG_PLANTS:
-                if (queuePlants.Count == 0)
-                    CreateObj(tag);
-                return queuePlants.Dequeue();
+                {
+                    if (queuePlants.Count == 0)
+                        CreateObj(tag);
+                    return queuePlants.Dequeue();
+                }
             case TagName.TAG_BULLETS:
-                if (queueBullets.Count == 0)
-                    CreateObj(tag);
-                return queueBullets.Dequeue();
+                {
+                    if (queueBullets.Count == 0)
+                        CreateObj(tag);
+                    return queueBullets.Dequeue();
+                }
             case TagName.TAG_REWARDS:
-                if (queueRewards.Count == 0)
-                    CreateObj(tag);
-                return queueRewards.Dequeue();
+                {
+                    if (queueRewards.Count == 0)
+                        CreateObj(tag);
+                    return queueRewards.Dequeue();
+                }
         }
         return null;
     }
 
-    public GameObject DequeuePlantsByID(int id)
+    public GameObject DequeueByID(int id, string tag)
     {
-        foreach (GameObject item in queuePlants)
+        switch (tag)
         {
-            if (item.GetComponent<Plants>().ID == id && item.activeSelf == false)
-                return item;
+            case TagName.TAG_PLANTS:
+                {
+                    foreach (GameObject item in queuePlants)
+                    {
+                        if (item.GetComponent<Plants>().ID == id && item.activeSelf == false)
+                            return item;
+                    }
+                    CreateObj(TagName.TAG_PLANTS);
+                    return DequeueByID(id, tag);
+                }
+            case TagName.TAG_BULLETS:
+                {
+                    foreach (GameObject item in queueBullets)
+                    {
+                        if (item.GetComponent<BulletPlants>().ID == id && item.activeSelf == false)
+                            return item;
+                    }
+                    CreateObj(TagName.TAG_BULLETS);
+                    return DequeueByID(id, tag);
+                }
         }
 
-        CreateObj(TagName.TAG_PLANTS);
-        return DequeuePlantsByID(id);
+        return null;
     }
 
     public float GetPricePlantsByID(int id)

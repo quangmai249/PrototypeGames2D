@@ -264,13 +264,13 @@ public class Plants : MonoBehaviour
     {
         while (zombies.Health > 0)
         {
-            _bullet = SpawnPlantsZombies.Instance.DequeueObj(TagName.TAG_BULLETS);
+            _bullet = SpawnPlantsZombies.Instance.DequeueByID(this.id, TagName.TAG_BULLETS);
+
             _bullet.GetComponent<BulletPlants>().Plant = this;
             _bullet.transform.position = this.transform.position;
             _bullet.SetActive(true);
 
             AudioManager.Instance.FireBulletSound();
-
             yield return new WaitForSeconds(rate);
         }
 
