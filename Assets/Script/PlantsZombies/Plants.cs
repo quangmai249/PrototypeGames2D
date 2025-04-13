@@ -146,6 +146,8 @@ public class Plants : MonoBehaviour
 
         if (_construction != null && !_construction.GetComponent<ConstructionPoints>().IsFull)
         {
+            AudioManager.Instance.PlaceSound();
+
             this.gameObject.transform.position = new Vector3(
                 this._construction.transform.position.x,
                 this._construction.transform.position.y + this.GetComponent<SpriteRenderer>().size.x / 2);
@@ -217,6 +219,9 @@ public class Plants : MonoBehaviour
 
     public void SetDefaultConstruction()
     {
+        if (_construction == null)
+            return;
+
         _construction.GetComponent<SpriteRenderer>().color = Color.white;
         _construction.GetComponent<ConstructionPoints>().IsFull = false;
     }
@@ -263,6 +268,8 @@ public class Plants : MonoBehaviour
             _bullet.GetComponent<BulletPlants>().Plant = this;
             _bullet.transform.position = this.transform.position;
             _bullet.SetActive(true);
+
+            AudioManager.Instance.FireBulletSound();
 
             yield return new WaitForSeconds(rate);
         }

@@ -26,6 +26,7 @@ public abstract class BaseEnemies : MonoBehaviour
             _rewards = SpawnPlantsZombies.Instance.DequeueObj(TagName.TAG_REWARDS).transform;
             _rewards.position = this.transform.position;
             _rewards.gameObject.SetActive(true);
+            _rewards.GetComponent<RewardsPlantsandZombies>().IsStartSpawn = true;
 
             return;
         }

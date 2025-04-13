@@ -101,16 +101,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isReplace: 0
-  isAttacked: 0
   isAttacking: 0
   id: 3
   price: 150
   health: 100
   rate: 2
   detectDistance: 9
-  timeDoubleClick: 0.25
-  numBullets: 10
-  plantBullets: {fileID: 2413248673014226814, guid: 50827c3b07ca829438a08dcd9255c5cc, type: 3}
+  damage: 15
   posConstruction: {x: 0, y: 0, z: 0}
   canvasPlants: {fileID: 8826543837973926978, guid: bf91410cbbea20542afdb3f854a54986, type: 3}
   sliderHealthBar: {fileID: 0}
