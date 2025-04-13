@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class PlantsZombiesScene : MonoBehaviour
 {
     [Header("Gameplay")]
+    [SerializeField] bool isStartSpawn = false;
     [SerializeField] bool isPickup = false;
     [SerializeField] float gold = 500;
     [SerializeField] float maxHealth = 100;
@@ -17,6 +18,7 @@ public class PlantsZombiesScene : MonoBehaviour
     [Header("Spawn")]
     [SerializeField] float timeSpawn = 5;
     [SerializeField] Transform[] posSpawn;
+    [SerializeField] AudioSource audioSource;
 
     [Header("UI")]
     [SerializeField] Slider sliderTimePlay;
@@ -32,6 +34,7 @@ public class PlantsZombiesScene : MonoBehaviour
     private void Awake()
     {
         SpawnPlantsZombies.Instance.EnqueneAllObj();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -51,6 +54,7 @@ public class PlantsZombiesScene : MonoBehaviour
 
         sliderTimePlay.maxValue = defaultMaxTimeplay;
         sliderTimePlay.value = defaultMaxTimeplay;
+        sliderTimePlay.gameObject.SetActive(false);
 
         txtGold.text = gold.ToString() + "$";
         txtHealth.text = sliderHealth.value.ToString() + "/" + defaultMaxHealth;
@@ -58,10 +62,21 @@ public class PlantsZombiesScene : MonoBehaviour
 
     private void Update()
     {
-        maxTimeplay -= Time.deltaTime;
-        sliderTimePlay.value = maxTimeplay;
-
         timeSpawn -= Time.deltaTime;
+
+        if (isStartSpawn)
+        {
+            maxTimeplay -= Time.deltaTime;
+            sliderTimePlay.value = maxTimeplay;
+        }
+
+        if (!isStartSpawn && timeSpawn <= 0)
+        {
+            isStartSpawn = true;
+            sliderTimePlay.gameObject.SetActive(true);
+            audioSource.Play();
+        }
+
         if (timeSpawn <= 0)
         {
             _enemies = SpawnPlantsZombies.Instance.DequeueObj(TagName.TAG_ENEMIES);

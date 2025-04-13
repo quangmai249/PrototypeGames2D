@@ -7,7 +7,6 @@ public class BulletPlants : MonoBehaviour
     [SerializeField] float speed = 0.5f;
 
     private Plants _plant;
-
     private void Update()
     {
         this.transform.Translate(Vector3.right * speed * Time.deltaTime);

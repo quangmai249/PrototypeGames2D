@@ -9,6 +9,7 @@ public class ShovelPlantsZombies : MonoBehaviour
 
     private Vector3 posDefault;
     private Vector3 pos;
+    private AudioSource audioSource;
     private Collider2D plant;
     private PlantsZombiesScene _plantsZombiesScene;
 
@@ -16,6 +17,7 @@ public class ShovelPlantsZombies : MonoBehaviour
     {
         _plantsZombiesScene = GameObject.FindGameObjectWithTag(TagName.TAG_GAME_CONTROLLER).GetComponent<PlantsZombiesScene>();
         posDefault = this.transform.position;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -25,17 +27,22 @@ public class ShovelPlantsZombies : MonoBehaviour
         else
             this.transform.position = posDefault;
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && _plantsZombiesScene.IsPickup)
         {
+            AudioManager.Instance.CancelSound();
             isClicked = false;
             _plantsZombiesScene.IsPickup = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && plant != null)
         {
+            audioSource.Play();
+
             plant.GetComponent<Plants>().SetDefaultStats();
             plant.GetComponent<Plants>().SetDefaultConstruction();
+
             SpawnPlantsZombies.Instance.EnqueueObj(plant.gameObject);
+
             isClicked = false;
             _plantsZombiesScene.IsPickup = false;
         }

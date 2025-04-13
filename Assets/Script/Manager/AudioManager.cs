@@ -14,12 +14,16 @@ public class AudioManager : SingletonGeneric<AudioManager>
     [Header("AudioSource")]
     [SerializeField] AudioSource audioSFXSource;
     [SerializeField] AudioSource audioMusicSource;
+    [SerializeField] AudioSource audioSFXSourceFireBullet;
 
     [Header("AudioClips")]
     [SerializeField] AudioClip clipClickButton;
     [SerializeField] AudioClip clipCoin;
     [SerializeField] AudioClip clipPing;
     [SerializeField] AudioClip clipBomb;
+    [SerializeField] AudioClip clipCancel;
+    [SerializeField] AudioClip clipPlace;
+    [SerializeField] AudioClip clipFireBullet;
     [SerializeField] AudioClip[] clipsBG;
 
     void Start()
@@ -79,6 +83,21 @@ public class AudioManager : SingletonGeneric<AudioManager>
     public void BombSound()
     {
         audioSFXSource.PlayOneShot(clipBomb);
+    }
+
+    public void CancelSound()
+    {
+        audioSFXSource.PlayOneShot(clipCancel);
+    }
+
+    public void PlaceSound()
+    {
+        audioSFXSource.PlayOneShot(clipPlace);
+    }
+
+    public void FireBulletSound()
+    {
+        audioSFXSourceFireBullet.PlayOneShot(clipFireBullet);
     }
 
     public void AudioClipSound(AudioClip clip)
