@@ -55,6 +55,9 @@ public class ButtonsController : SingletonGeneric<ButtonsController>
 
     public void ButtonHome()
     {
+        if (SceneManager.GetActiveScene().name == TagName.NAME_SCENE_PLANTS_ZOMBIES)
+            SpawnPlantsZombies.Instance.EnqueneAllObj();
+
         SceneManager.LoadScene(TagName.NAME_SCENE_HOME);
         AudioManager.Instance.ClickedButton();
         AudioManager.Instance.PlayMusicBakground(TagName.NAME_SCENE_HOME);
